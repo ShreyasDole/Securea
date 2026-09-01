@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   AETHER DESIGN SYSTEM — DARK THEME (default)
+   Glass: frosted translucent panels floating above a deep gradient
+   Neu:   soft extruded shadows from the same surface
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Surface */
+  --bg-base:    #080C18;
+  --bg-surface: #0D1120;
+
+  /* Borders */
+  --border-subtle:  rgba(255,255,255,0.06);
+  --border-default: rgba(255,255,255,0.10);
+  --border-strong:  rgba(255,255,255,0.16);
+
+  /* Glass fill (very thin tint — lets gradient bleed through) */
+  --glass-subtle:  rgba(255,255,255,0.04);
+  --glass-medium:  rgba(255,255,255,0.07);
+  --glass-strong:  rgba(255,255,255,0.12);
+  --glass-overlay: rgba(8,12,24,0.90);
+
+  /* Text */
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-tertiary:  #475569;
+
+  /* Semantic */
+  --primary:   #6366F1;
+  --secondary: #8B5CF6;
+  --success:   #10B981;
+  --warning:   #F59E0B;
+  --error:     #EF4444;
+
+  /* Neumorphic shadows — dark surface, top-left light source */
+  --neu-shadow-raised:
+    6px 6px 16px rgba(0,0,0,0.70),
+    -3px -3px 8px  rgba(255,255,255,0.03);
+  --neu-shadow-pressed:
+    inset 4px 4px 12px rgba(0,0,0,0.65),
+    inset -2px -2px 6px rgba(255,255,255,0.025);
+
+  /* Card-level glass + neu combined */
+  --card-bg:     rgba(255,255,255,0.07);
+  --card-border: rgba(255,255,255,0.11);
+  --card-shadow:
+    0 8px 32px  rgba(0,0,0,0.50),
+    0 2px 8px   rgba(0,0,0,0.35),
+    -2px -2px 6px rgba(255,255,255,0.03),
+    inset 0 1px 0 rgba(255,255,255,0.10);  /* glass top-edge highlight */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT THEME
+   Glass: frosted milk-white panels on a cool periwinkle canvas
+   Neu:   classic clay neumorphism — soft shadows on #DDE3EC
+   ═══════════════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  /* Surface — classic neu bg color */
+  --bg-base:    #DDE3EC;
+  --bg-surface: #E4EAF2;
+
+  /* Borders */
+  --border-subtle:  rgba(255,255,255,0.70);
+  --border-default: rgba(255,255,255,0.85);
+  --border-strong:  rgba(255,255,255,1.0);
+
+  /* Glass fill — thick frosted white */
+  --glass-subtle:  rgba(255,255,255,0.45);
+  --glass-medium:  rgba(255,255,255,0.68);
+  --glass-strong:  rgba(255,255,255,0.88);
+  --glass-overlay: rgba(255,255,255,0.97);
+
+  /* Text */
+  --text-primary:   #1A202C;
+  --text-secondary: #4A5568;
+  --text-tertiary:  #718096;
+
+  /* Classic neumorphic light shadows — bg #DDE3EC */
+  --neu-shadow-raised:
+    6px 6px 14px  rgba(163,177,198,0.70),   /* bottom-right dark */
+    -4px -4px 10px rgba(255,255,255,0.90);   /* top-left white */
+  --neu-shadow-pressed:
+    inset 4px 4px 10px rgba(163,177,198,0.65),
+    inset -3px -3px 8px rgba(255,255,255,0.85);
+
+  /* Card */
+  --card-bg:     rgba(255,255,255,0.68);
+  --card-border: rgba(255,255,255,0.90);
+  --card-shadow:
+    8px 8px 20px  rgba(163,177,198,0.60),    /* dark neu shadow */
+    -4px -4px 12px rgba(255,255,255,0.90),   /* light neu highlight */
+    inset 0 1px 0 rgba(255,255,255,0.95);     /* glass inner top highlight */
+}
+
+/* ─── Light-mode Tailwind overrides ─────────────────────────── */
+[data-theme="light"] .text-n100 { color: #1A202C !important; }
+[data-theme="light"] .text-n200 { color: #2D3748 !important; }
+[data-theme="light"] .text-n300 { color: #4A5568 !important; }
+[data-theme="light"] .text-n400 { color: #5A6478 !important; }
+[data-theme="light"] .text-n500 { color: #718096 !important; }
+[data-theme="light"] .text-n600 { color: #A0AEC0 !important; }
+[data-theme="light"] .text-n700 { color: #CBD5E1 !important; }
+[data-theme="light"] .bg-n800   { background-color: #E4EAF2 !important; }
+[data-theme="light"] .bg-n700   { background-color: #ECF0F6 !important; }
+[data-theme="light"] [class*="border-white/"] { border-color: rgba(255,255,255,0.80) !important; }
+[data-theme="light"] .scrollbar-thin::-webkit-scrollbar-thumb { background: #B0BCC9; }
+[data-theme="light"] .gradient-text-primary {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+[data-theme="light"] body { background-color: var(--bg-base); color: var(--text-primary); }
+[data-theme="light"] .shimmer {
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.4) 50%, rgba(0,0,0,0) 100%);
+  background-size: 200% 100%;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BACKGROUND GRADIENT STAGE
+   Must be rich & colourful — this is what blurs through the glass
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Dark: deep space with vivid indigo/violet orbs */
+body {
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 1000px 800px at -5%   -5%,  rgba(99,102,241,0.30) 0%, transparent 55%),
+    radial-gradient(ellipse 700px  600px at 105%  105%, rgba(139,92,246,0.24) 0%, transparent 50%),
+    radial-gradient(ellipse 500px  400px at 55%   60%,  rgba(59,130,246,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 400px  300px at 80%   15%,  rgba(236,72,153,0.08) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Light: muted periwinkle canvas with soft violet and blue haze */
+[data-theme="light"] body {
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 900px  700px at -5%  -5%,  rgba(99,102,241,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 600px  500px at 105% 105%, rgba(139,92,246,0.11) 0%, transparent 50%),
+    radial-gradient(ellipse 400px  350px at 60%  40%,  rgba(59,130,246,0.07) 0%, transparent 55%);
+  background-attachment: fixed;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASS + NEUMORPHISM UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+@layer utilities {
+
+  /* ── Pure glass tiers ──────────────────────────────────────── */
+  .glass {
+    background: var(--glass-medium);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--card-border);
+  }
+
+  .glass-subtle {
+    background: var(--glass-subtle);
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .glass-strong {
+    background: var(--glass-strong);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid var(--border-strong);
+  }
+
+  .glass-overlay {
+    background: var(--glass-overlay);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid var(--border-strong);
+  }
+
+  /* ── Neumorphic shadows only ───────────────────────────────── */
+  .neu-raised  { box-shadow: var(--neu-shadow-raised); }
+  .neu-pressed { box-shadow: var(--neu-shadow-pressed); }
+
+  .neu-card {
+    background: var(--bg-base);
+    box-shadow: var(--neu-shadow-raised);
+  }
+
+  /* ── AETHER CARD — frosted glass + neumorphic depth ─────────
+     This is the primary card component.
+     - Glass: translucent fill + strong backdrop blur
+     - Neu:   deep shadow below + subtle highlight above + inner top-edge gleam
+  */
+  .aether-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: 16px;
+    /* Extra: colour the top border edge slightly brighter for glass refraction */
+    border-top-color: rgba(255,255,255,0.18);
+  }
+
+  [data-theme="light"] .aether-card {
+    border-top-color: rgba(255,255,255,1.0);
+  }
+
+  .aether-card-sm {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid var(--card-border);
+    border-top-color: rgba(255,255,255,0.16);
+    box-shadow: var(--card-shadow);
+    border-radius: 12px;
+  }
+
+  [data-theme="light"] .aether-card-sm {
+    border-top-color: rgba(255,255,255,0.95);
+  }
+
+  /* ── Sidebar glass panel ────────────────────────────────────── */
+  .sidebar-glass {
+    background: rgba(255,255,255,0.055);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.30);
+  }
+
+  [data-theme="light"] .sidebar-glass {
+    background: rgba(255,255,255,0.60);
+    border-right: 1px solid rgba(255,255,255,0.80);
+    box-shadow:
+      4px 0 20px rgba(163,177,198,0.35),
+      inset -1px 0 0 rgba(255,255,255,0.70);
+  }
+
+  /* ── Topbar glass strip ─────────────────────────────────────── */
+  .topbar-glass {
+    background: rgba(255,255,255,0.045);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.20);
+  }
+
+  [data-theme="light"] .topbar-glass {
+    background: rgba(255,255,255,0.58);
+    border-bottom: 1px solid rgba(255,255,255,0.82);
+    box-shadow:
+      0 2px 16px rgba(163,177,198,0.30),
+      inset 0 -1px 0 rgba(255,255,255,0.60);
+  }
+
+  /* ── Text ───────────────────────────────────────────────────── */
+  .text-primary   { color: var(--text-primary);   }
+  .text-secondary { color: var(--text-secondary); }
+  .text-tertiary  { color: var(--text-tertiary);  }
+
+  /* ── Scrollbar ──────────────────────────────────────────────── */
+  .scrollbar-thin::-webkit-scrollbar       { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+  /* ── Gradient text ──────────────────────────────────────────── */
+  .gradient-text-primary {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-intel {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Status dot pulse ───────────────────────────────────────── */
+  .dot-pulse { animation: dotPulse 2s ease-in-out infinite; }
+  @keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.75); }
+  }
+
+  /* ── Shimmer loading ────────────────────────────────────────── */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+  }
+
+  /* ── Glow halos ─────────────────────────────────────────────── */
+  .glow-primary   { box-shadow: 0 0 40px rgba(99,102,241,0.18);  }
+  .glow-intel     { box-shadow: 0 0 40px rgba(139,92,246,0.18);  }
+  .glow-attention { box-shadow: 0 0 40px rgba(239,68,68,0.15);   }
+  .glow-stable    { box-shadow: 0 0 40px rgba(16,185,129,0.14);  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+   Primary uses the gradient + neumorphic raise
+   Ghost uses glass + subtle border
+   ═══════════════════════════════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #6366F1, #4F46E5);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow:
+    0 4px 12px rgba(99,102,241,0.35),
+    var(--neu-shadow-raised);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4F46E5, #4338CA);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99,102,241,0.45), var(--neu-shadow-raised);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(99,102,241,0.25), var(--neu-shadow-pressed);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--glass-subtle);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--glass-medium);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  box-shadow: var(--neu-shadow-raised);
+}
+
+[data-theme="light"] .btn-ghost {
+  color: #4A5568;
+  border-color: rgba(255,255,255,0.80);
+  box-shadow: 3px 3px 8px rgba(163,177,198,0.45), -2px -2px 6px rgba(255,255,255,0.85);
+}
+[data-theme="light"] .btn-ghost:hover {
+  background: rgba(255,255,255,0.80);
+  color: #1A202C;
+}

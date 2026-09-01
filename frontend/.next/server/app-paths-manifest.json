@@ -1,0 +1,8 @@
+{
+  "/intelligence/page": "app/intelligence/page.js",
+  "/monitor/[groupId]/[customerId]/page": "app/monitor/[groupId]/[customerId]/page.js",
+  "/monitor/[groupId]/page": "app/monitor/[groupId]/page.js",
+  "/monitor/page": "app/monitor/page.js",
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js"
+}
