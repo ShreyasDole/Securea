@@ -9,6 +9,7 @@ import {
   Sparkles,
   Search,
   MessageSquare,
+  Network,
   ChevronRight,
   PanelLeftClose,
   PanelLeftOpen,
@@ -17,9 +18,10 @@ import { cn } from "@/lib/utils";
 import { useFirm } from "@/lib/firm-context";
 
 const primaryNav = [
-  { href: "/",             icon: LayoutDashboard, label: "Overview"     },
-  { href: "/monitor",      icon: Radio,           label: "Monitor"      },
-  { href: "/intelligence", icon: Sparkles,        label: "Intelligence" },
+  { href: "/",                  icon: LayoutDashboard, label: "Overview"         },
+  { href: "/monitor",           icon: Radio,           label: "Monitor"          },
+  { href: "/intelligence",      icon: Sparkles,        label: "Intelligence"     },
+  { href: "/knowledge-graph",   icon: Network,         label: "Knowledge Graph"  },
 ];
 
 const secondaryNav = [
